@@ -6,6 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET("films")
+    @GET("albums")
     suspend fun getSearchAlbum(): Response<Albums>
 }
