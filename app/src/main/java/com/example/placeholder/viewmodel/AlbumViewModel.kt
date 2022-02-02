@@ -20,7 +20,6 @@ class AlbumViewModel @Inject constructor(private val repo: AlbumRepo) : ViewMode
         viewModelScope.launch(Dispatchers.IO) {
             val album = repo.getAnimeFilm()
             _response.postValue(album.body())
-            Log.e("VER", _response.value?.get(0)?.thumbnailUrl.toString())
         }
         return _response
     }
