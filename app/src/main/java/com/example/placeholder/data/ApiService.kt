@@ -7,5 +7,5 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("films")
-    suspend fun getSearchAlbum(@Query("albumQ") albumQ: String): Response<Albums>
+    suspend fun getSearchAlbum(): Response<Albums>
 }
