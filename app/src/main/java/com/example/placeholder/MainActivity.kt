@@ -102,9 +102,12 @@ class MainActivity : ComponentActivity() {
         Column() {
             LazyColumn() {
                 items(album) {
-                    Card(
-                    ) {
-                        Text(text = it.title)
+                    Row(Modifier.fillMaxWidth(1f)
+                        .padding(3.dp),
+                    horizontalArrangement = Arrangement.Center, ) {
+                        Text(text = it.title,
+                        maxLines = 1,
+                        )
                     }
                 }
             }
