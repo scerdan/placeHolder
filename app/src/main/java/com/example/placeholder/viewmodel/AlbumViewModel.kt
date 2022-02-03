@@ -9,6 +9,7 @@ import com.example.placeholder.models.AlbumsItem
 import com.example.placeholder.repository.AlbumRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,11 +17,12 @@ import javax.inject.Inject
 class AlbumViewModel @Inject constructor(private val repo: AlbumRepo) : ViewModel() {
     private val _response = MutableLiveData<ArrayList<AlbumsItem>>()
 
-    fun getResponses(): LiveData<ArrayList<AlbumsItem>> {
+    fun getUserFromApi(query: String): LiveData<ArrayList<AlbumsItem>> {
         viewModelScope.launch(Dispatchers.IO) {
-            val album = repo.getAnimeFilm()
+            val album = repo.getSearch(query)
             _response.postValue(album.body())
         }
         return _response
     }
+
 }

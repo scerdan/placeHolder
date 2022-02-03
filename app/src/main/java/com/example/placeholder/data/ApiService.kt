@@ -8,4 +8,9 @@ import retrofit2.http.Query
 interface ApiService {
     @GET("albums")
     suspend fun getSearchAlbum(): Response<Albums>
+
+    @GET("albums?")
+    suspend fun getSearchTitle(
+        @Query("q") q : String
+    ) : Response<Albums>
 }
