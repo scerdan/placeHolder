@@ -23,6 +23,8 @@ import androidx.navigation.navArgument
 import com.example.placeholder.models.Photos
 import com.example.placeholder.ui.theme.navigation.Screen
 import com.example.placeholder.viewmodel.AlbumViewModel
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
 
 @ExperimentalMaterialApi
@@ -96,8 +98,8 @@ fun MostrarListado(album: Photos, navController: NavHostController) {
                         Modifier
                             .fillMaxWidth(1f)
                             .clickable {
-                                navController.navigate("DetailScreen/${it.title}")
-                            Log.e("MJE", it.toString())
+                                val encodedUrl = URLEncoder.encode(it.thumbnailUrl, StandardCharsets.UTF_8.toString())
+                                navController.navigate("DetailScreen/${encodedUrl}/${it.title}/${it.id}")
                             }
                             .padding(3.dp),
                         horizontalArrangement = Arrangement.Start,
