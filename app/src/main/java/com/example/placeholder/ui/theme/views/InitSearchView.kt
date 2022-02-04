@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.navArgument
+import com.example.placeholder.R
 import com.example.placeholder.models.Photos
 import com.example.placeholder.ui.theme.navigation.Screen
 import com.example.placeholder.viewmodel.AlbumViewModel
@@ -77,9 +78,6 @@ fun MostrarListado(album: Photos, navController: NavHostController) {
                         .fillMaxWidth(0.9f)
                         .padding(0.dp,12.dp),
                     elevation = 5.dp,
-                    onClick = {
-//                        navController.navigate("DetailScreen/{${album[0].title}")
-                    },
                     backgroundColor = Color.Yellow,
                 ) {
                     Row(
@@ -98,7 +96,7 @@ fun MostrarListado(album: Photos, navController: NavHostController) {
                         Modifier
                             .fillMaxWidth(1f)
                             .clickable {
-                                val encodedUrl = URLEncoder.encode(it.thumbnailUrl, StandardCharsets.UTF_8.toString())
+                                val encodedUrl = URLEncoder.encode(it.url, StandardCharsets.UTF_8.toString())
                                 navController.navigate("DetailScreen/${encodedUrl}/${it.title}/${it.id}")
                             }
                             .padding(3.dp),

@@ -31,6 +31,5 @@ fun NavigationGraph(viewModel: AlbumViewModel) {
         ) {
             DetailScreen(it)
         }
-
     }
 }
