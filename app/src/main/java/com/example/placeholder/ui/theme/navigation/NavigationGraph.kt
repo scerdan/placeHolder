@@ -22,16 +22,12 @@ fun NavigationGraph(viewModel: AlbumViewModel) {
                 InitViewSearch(viewModel, navController)
             }
         }
-        composable(route = "DetailScreen/{album_image}/{album_title}/{album_id}",
+        composable(route = Screen.DETAIL_SCREEN.route,
             arguments = listOf(
                 navArgument("album_image") { type = NavType.StringType },
                 navArgument("album_title") { type = NavType.StringType },
                 navArgument("album_id") { type = NavType.StringType }
             )
-//            arguments = listOf(
-//                navArgument("ID") {type = NavType.StringType},
-//                navArgument("TITLE") {type = NavType.StringType},
-//                navArgument("IMAGE") {type = NavType.StringType},)
         ) {
             DetailScreen(it)
         }
