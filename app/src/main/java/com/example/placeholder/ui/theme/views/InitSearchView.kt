@@ -5,13 +5,16 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -62,17 +65,20 @@ fun ReciveData(
 @Composable
 fun MostrarListado(album: Albums, navController: NavHostController) {
     Column() {
-        LazyColumn() {
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(1f),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             items(album) {
                 Card(
                     shape = MaterialTheme.shapes.small, modifier = Modifier
-                        .fillMaxWidth(1f)
-                        .padding(10.dp)
-                        .clickable { },
+                        .fillMaxWidth(0.9f)
+                        .padding(0.dp,12.dp),
                     elevation = 5.dp,
                     onClick = {
-                        navController.navigate(Screen.DETAIL_SCREEN.route)
-                    }
+//                        navController.navigate("DetailScreen/{${album[0].title}")
+                    },
+                    backgroundColor = Color.Yellow,
                 ) {
                     Row(
                         Modifier
@@ -89,6 +95,10 @@ fun MostrarListado(album: Albums, navController: NavHostController) {
                     Row(
                         Modifier
                             .fillMaxWidth(1f)
+                            .clickable {
+                                navController.navigate("DetailScreen/{${it.title}")
+
+                            }
                             .padding(3.dp),
                         horizontalArrangement = Arrangement.Start,
                     ) {

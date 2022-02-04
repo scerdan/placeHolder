@@ -1,5 +1,6 @@
 package com.example.placeholder.ui.theme.navigation
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
@@ -22,13 +23,18 @@ fun NavigationGraph(viewModel: AlbumViewModel) {
                 InitViewSearch(viewModel, navController)
             }
         }
-        composable(route = Screen.DETAIL_SCREEN.route,
+        composable(route = "DetailScreen/{mediaId}",
+            arguments = listOf(
+                navArgument("mediaId"){ type = NavType.StringType}
+            )
 //            arguments = listOf(
 //                navArgument("ID") {type = NavType.StringType},
 //                navArgument("TITLE") {type = NavType.StringType},
 //                navArgument("IMAGE") {type = NavType.StringType},)
-        ) {
-            DetailScreen(it)
+        ) { it ->
+            val argIt = it.arguments?.getString("mediaId")
+            requireNotNull(argIt)
+            DetailScreen(argIt)
         }
 
     }
