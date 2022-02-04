@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.navArgument
-import com.example.placeholder.models.Albums
+import com.example.placeholder.models.Photos
 import com.example.placeholder.ui.theme.navigation.Screen
 import com.example.placeholder.viewmodel.AlbumViewModel
 
@@ -50,11 +50,11 @@ fun ReciveData(
     query: String,
     navController: NavHostController
 ) {
-    val tit by ivm.getUserFromApi(query).observeAsState()
+    val viewM by ivm.getUserFromApi(query).observeAsState()
     val query = remember {
         mutableStateOf(query)
     }
-    tit?.let {
+    viewM?.let {
         Log.e("RESULTADO", it.size.toString())
         MostrarListado(it, navController)
     }
@@ -63,7 +63,7 @@ fun ReciveData(
 
 @ExperimentalMaterialApi
 @Composable
-fun MostrarListado(album: Albums, navController: NavHostController) {
+fun MostrarListado(album: Photos, navController: NavHostController) {
     Column() {
         LazyColumn(
             modifier = Modifier.fillMaxSize(1f),
@@ -96,8 +96,8 @@ fun MostrarListado(album: Albums, navController: NavHostController) {
                         Modifier
                             .fillMaxWidth(1f)
                             .clickable {
-                                navController.navigate("DetailScreen/{${it.title}")
-
+                                navController.navigate("DetailScreen/${it.title}")
+                            Log.e("MJE", it.toString())
                             }
                             .padding(3.dp),
                         horizontalArrangement = Arrangement.Start,

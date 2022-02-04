@@ -1,6 +1,6 @@
 package com.example.placeholder.models
 
-data class AlbumsItem(
+data class PhotosItem(
     val albumId: Int,
     val id: Int,
     val thumbnailUrl: String,

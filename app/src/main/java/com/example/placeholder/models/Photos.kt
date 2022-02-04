@@ -1,3 +1,3 @@
 package com.example.placeholder.models
 
-class Albums : ArrayList<AlbumsItem>()
+class Photos : ArrayList<PhotosItem>()
