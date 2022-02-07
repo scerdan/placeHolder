@@ -15,8 +15,15 @@ El presente repo consta de las últimas tecnologías en Android nativo.
 *  [Jetpack Compose](https://developer.android.com/jetpack/compose?hl=es-419)
 * [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines)
 
-## API
-[Json Api](https://jsonplaceholder.typicode.com/)
+
+## JSONPlaceholder Api [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[JSONPlaceholder](https://jsonplaceholder.typicode.com) is a simple fake REST API for testing and prototyping.
+
+JSONPlaceholder is powered by [JSON Server](https://github.com/typicode/json-server).
+
+<a href="https://www.patreon.com/typicode">
+  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
 
 ## DEMO
 En el folder /apkDemo tienes la apk build para que puedas instalar la misma en un dispositivo físico.
